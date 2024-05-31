@@ -10,11 +10,11 @@ import axios from 'axios';
 
 import App from './App.vue';
 Vue.use(VueAxios, axios);
-import IndexComponent from './components/posts/Index.vue';
+import IndexComponent from './components/pipes/Index.vue';
 
 const routes = [
     {
-        name: 'posts',
+        name: 'pipes',
         path: '/',
         component: IndexComponent
     }
