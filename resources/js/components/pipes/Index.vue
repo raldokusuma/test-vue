@@ -16,15 +16,20 @@
                                     <th>Code</th>
                                     <th>Product Type</th>
                                     <th>Item Desc</th>
-
+                                    <th>Grade</th>
+                                    <th>Size</th>
+                                    <th>Connection</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr v-for="(pipe, index) in filteredList" v-if="filteredList.length" :key="pipe.id">
-                                    <td>{{ pipe.id }}</td>
+                                    <td hidden>{{ pipe.id }}</td>
                                     <td>{{ pipe.code }}</td>
                                     <td>{{ pipe.Product_type }}</td>
                                     <td>{{ pipe.item_desc }}</td>
+                                    <td>{{ pipe.grade }}</td>
+                                    <td>{{ pipe.size }}</td>
+                                    <td>{{ pipe.connection }}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -63,7 +68,13 @@
                 return this.pipes;
             } else {
                 return this.pipes.filter((pipe) => {
-                    return pipe.code.toLowerCase().includes(this.multisearch.toLowerCase()) || pipe.Product_type.toLowerCase().includes(this.multisearch.toLowerCase()) || pipe.item_desc.toLowerCase().includes(this.multisearch.toLowerCase()) ;
+                    return pipe.code.toLowerCase().includes(this.multisearch.toLowerCase()) || 
+                    pipe.Product_type.toLowerCase().includes(this.multisearch.toLowerCase()) || 
+                    pipe.item_desc.toLowerCase().includes(this.multisearch.toLowerCase()) || 
+                    pipe.grade.toLowerCase().includes(this.multisearch.toLowerCase()) ||
+                    pipe.size.toLowerCase().includes(this.multisearch.toLowerCase())  ||
+                    pipe.connection.toLowerCase().includes(this.multisearch.toLowerCase())
+                    ;
                 }); 
             }
         },
